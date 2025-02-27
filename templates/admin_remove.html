@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<br />
+<p>Admin Dashboard</p>
+<p>What item would you like to remove?</p>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.name.label }}
+    {{ form.name() }}
+    {% for error in form.name.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.submit() }}
+    </form>
+
+
+
+{% endblock %}

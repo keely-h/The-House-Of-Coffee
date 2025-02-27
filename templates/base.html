@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>House Of Coffee (Coffee Shop) </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    </head>
+
+    <body>
+        <header>
+            <h1>House of Coffee</h1>
+        </header>
+        <nav>
+            <a href="{{ url_for('admin') }}">Administrator</a>
+            <a href="{{ url_for('orders') }}">Our Coffees</a>
+            {% if "user_id" in session %}
+            <a href="{{ url_for('basket') }}">Your Basket</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            
+            <p>Logged in as: {{ session["user_id"] }}</p>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login!</a>
+            
+            {% endif %}
+        </nav>
+        <main>
+            {% block main_content %}
+            {% endblock %}
+        </main>
+        <br />
+        <footer>
+            <a href="{{ url_for('index') }}">Home</a>
+            <p> Created by Keely Hennessy. Images were obtained by Unsplash, under the Unsplash License.</p>
+        </footer>
+    </body>
+
+</html>

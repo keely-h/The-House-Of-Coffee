@@ -1,0 +1,17 @@
+<!-- ordering coffee page -->
+{% extends "base.html" %}
+
+{% block main_content %} 
+<p>Looking to order a coffee? Look no further!</p>
+<h1>Our Menu: </h1>
+<table>
+    {% for coffee in coffees %}
+        <tr>
+            <td>{{ coffee["name"] }}</td>
+            <td>{{ coffee["price"] }}</td>
+            <td><a href="{{ url_for('order', coffee_id=coffee['coffee_id'] ) }}">See details</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

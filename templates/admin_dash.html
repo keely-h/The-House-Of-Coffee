@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<br />
+<p>Admin Dashboard</p>
+<p>What would you like to do? </p>
+<p>Add a new product: <a href="{{ url_for('admin_add') }}">Add</a></p>
+<p>Remove a product: <a href="{{ url_for('admin_remove') }}">Remove</a></p>
+<p>Edit product: <a href="{{ url_for('admin_edit') }}">Edit Item</a></p>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main_content %} 
+
+    <h1>Your Basket</h1>
+    {%if basket %}
+        <table>
+            {%for coffee_id in basket %}
+                <tr>
+                    <td>{{ names[coffee_id] }}</td>
+                    <td>{{ basket[coffee_id] }}</td>
+                    <td><a href="{{ url_for('add', coffee_id=coffee_id) }}">Add</a></td>
+                    <td><a href="{{ url_for('remove_from_basket', coffee_id=coffee_id ) }}">Remove From Cart </a></td>
+                </tr>
+            {% endfor %}
+            <tr >
+                <td colspan="4">Chosen Milk preference: {{ extras }}</td>
+            </tr>
+        </table>
+    {% else %}
+    <p>Your basket is empty.</p>
+    {% endif %}
+    <a href="{{ url_for('orders' ) }}">Back</a>
+{% endblock %}
+
+

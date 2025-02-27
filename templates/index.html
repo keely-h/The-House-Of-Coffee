@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Welcome to the House Of Coffee!</h1>
+    {% if "user_id" not in session %}
+        <p>Become a member now! <a href="{{ url_for('register') }}">Register Now!</a></p>
+        <p>If you're already a member:   <a href="{{ url_for('login') }}">Login here</a></p>
+    
+    {% else %}
+        <p>Welcome back!</p>
+
+    {% endif %}
+    <p>Welcome to the House of Coffee, where we can offer you our finest homemade brews!</p>
+    <p>Looking for a real coffee right now? <a href="{{ url_for('orders') }}">Click here!</a> </p>
+    <!-- ideas for homepage:
+vague nav?
+login/logout system
+Points / loyalty system if you purchase a certain amount / order over ten coffees.
+items reccommended to you: mugs, order coffee now, reserve a table in the coffee house? 
+main homepage is login. then can add to cart, order coffee straight away, rights to reserve table. -->
+
+
+
+{% endblock %}
+
